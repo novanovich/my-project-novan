@@ -1,20 +1,77 @@
+:root {
+  --primary: #ff4d6d;
+  --dark: #0f0f0f;
+  --glass: rgba(255, 255, 255, 0.08);
+  --blur: blur(12px);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
 body {
-  background-color: #111;
+  height: 100vh;
+  background: radial-gradient(circle at top left, #1a1a1a, #000);
   color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+}
+
+.card {
+  backdrop-filter: var(--blur);
+  background: var(--glass);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 3rem;
+  border-radius: 20px;
   text-align: center;
-  font-family: Arial, sans-serif;
+  width: 420px;
+  transition: 0.4s ease;
 }
 
-button {
-  background-color: red;
-  color: white;
-  padding: 12px 20px;
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.title {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  opacity: 0.7;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  padding: 12px 30px;
+  border-radius: 50px;
   border: none;
-  border-radius: 8px;
-  font-size: 16px;
+  background: var(--primary);
+  color: white;
   cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: 0.3s ease;
 }
 
-button:hover {
-  background-color: darkred;
+.btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 20px var(--primary);
+}
+
+canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
 }
